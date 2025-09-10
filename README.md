@@ -30,4 +30,4 @@ Create a variable to store a hero's name and experience (XP) amount. Then, use a
 
 Finally, a message should be displayed:
 
-"The Hero named **{name}** is at the level of **{level}**"
+"The Hero named **{name}** is at the **{level}** level"
