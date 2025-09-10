@@ -1,3 +1,17 @@
+const readline = require('readline');
+
+function question(query) {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+
+  return new Promise(resolve => rl.question(query, ans => {
+    rl.close();
+    resolve(ans);
+  }));
+}
+
 let name;
 let experience;
 let level = 'Invalid Level';
@@ -40,9 +54,31 @@ function rankHeroLevel(name, experience) {
     default:
       console.log('Error: invalid experience')
   }
-  console.log(`The hero named ${name} is at the ${level} level`)
+  console.log(`\nThe hero named ${name} is at the ${level} level\n`)
 
 }
 
 
-rankHeroLevel('Camus', 5000);
+
+
+async function main() {
+  let repeatQuestions = 'yes';
+
+  while (repeatQuestions.toLowerCase() === 'yes') {
+    let name = await question('What is your name? ');
+
+    let experience = await question('How many experience points do you have? ');
+
+
+    rankHeroLevel(name, experience)
+    repeatQuestions = await question("Want to see another player's rank? (yes/no) ");
+    while (repeatQuestions.toLowerCase() !== 'no' && repeatQuestions.toLowerCase() !== 'yes') {
+      console.log('Enter a valid answer');
+      repeatQuestions = await question("Want to see another player's rank? (yes/no) ");
+    }
+  }
+
+  console.log('Program closed.');
+}
+
+main();
