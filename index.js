@@ -28,28 +28,28 @@ function rankHeroLevel(name, experience) {
   getExperience(experience);
   switch (true) {
     case (experience < 1000):
-      level = "Ferro"
+      level = "Iron"
       break;
     case (experience >= 1001 && experience <= 2000):
       level = "Bronze"
       break;
     case (experience >= 2001 && experience <= 5000):
-      level = "Prata"
+      level = "Silver"
       break;
     case (experience >= 5001 && experience <= 7000):
-      level = "Ouro"
+      level = "Gold"
       break;
     case (experience >= 7001 && experience <= 8000):
-      level = "Platina"
+      level = "Platinum"
       break;
     case (experience >= 8001 && experience <= 9000):
-      level = "Ascendente"
+      level = "Ascendant"
       break;
     case (experience >= 9001 && experience <= 10000):
-      level = "Imortal"
+      level = "Immortal"
       break;
     case (experience >= 10001):
-      level = "Radiante"
+      level = "Radiant"
       break;
     default:
       console.log('Error: invalid experience')
