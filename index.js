@@ -1,5 +1,9 @@
 const readline = require('readline');
 
+let name = 'Invalid Name';
+let experience = 'Invalid Experience';
+let level = 'Invalid Level';
+
 function question(query) {
   const rl = readline.createInterface({
     input: process.stdin,
@@ -12,9 +16,7 @@ function question(query) {
   }));
 }
 
-let name;
-let experience;
-let level = 'Invalid Level';
+
 
 function getName(name) {
   return name
@@ -65,9 +67,8 @@ async function main() {
   let repeatQuestions = 'yes';
 
   while (repeatQuestions.toLowerCase() === 'yes') {
-    let name = await question('What is your name? ');
-
-    let experience = await question('How many experience points do you have? ');
+    name = await question('What is your name? ');
+    experience = await question('How many experience points do you have? ');
 
 
     rankHeroLevel(name, experience)
