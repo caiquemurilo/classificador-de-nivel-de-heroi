@@ -45,4 +45,4 @@ function rankHeroLevel(name, experience) {
 }
 
 
-rankHeroLevel('Camus', 5000.5);
+rankHeroLevel('Camus', 5000);
