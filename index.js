@@ -18,16 +18,16 @@ function question(query) {
 
 
 
-function getName(name) {
-  return name
+async function getName() {
+  let name = await question('What is your name? ');
+  return name;
 }
-function getExperience(experience) {
-  return experience
+async function getExperience() {
+  let experience = await question('How many experience points do you have? ');
+  return parseInt(experience, 10);
 }
 
 function rankHeroLevel(name, experience) {
-  getName(name);
-  getExperience(experience);
   switch (true) {
     case (experience < 1000):
       level = "Iron"
@@ -54,7 +54,8 @@ function rankHeroLevel(name, experience) {
       level = "Radiant"
       break;
     default:
-      console.log('Error: invalid experience')
+      console.log('Error: Invalid experience')
+      level = 'Invalid'
   }
   console.log(`\nThe hero named ${name} is at the ${level} level\n`)
 
@@ -67,8 +68,8 @@ async function main() {
   let repeatQuestions = 'yes';
 
   while (repeatQuestions.toLowerCase() === 'yes') {
-    name = await question('What is your name? ');
-    experience = await question('How many experience points do you have? ');
+    name = await getName();
+    experience = await getExperience();
 
 
     rankHeroLevel(name, experience)
